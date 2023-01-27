@@ -1,0 +1,1 @@
+Pacman, but with a circle of limited visibility
