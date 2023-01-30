@@ -1,1 +1,7 @@
+Games List:
+
 Pacman, but with a circle of limited visibility
+Boxhead
+tank trouble
+agario
+tower defense based games
