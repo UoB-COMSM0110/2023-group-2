@@ -4,7 +4,9 @@ Your group report will be written up on Github (formatted with Markdown) as the 
 
 ## Team
 
-Who’s in your team + team photo.
+Gus Fowle
+
+Team photo: ... waiting for everyone to turn up to take a photo
 
 ## Introduction (5% ~250 words)
 
