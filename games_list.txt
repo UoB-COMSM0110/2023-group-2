@@ -9,3 +9,6 @@ mario
 Spelunky
 Super Smash Bros
 Fall Guys (but 2D)
+Gluttonous Snake
+Sokoban
+Golden Miner
