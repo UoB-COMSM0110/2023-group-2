@@ -7,6 +7,7 @@ Your group report will be written up on Github (formatted with Markdown) as the 
 Gus Fowle
 Joe Lever
 Yi Yin
+Yibo Ma
 
 Team photo: ... waiting for everyone to turn up to take a photo
 
