@@ -1,6 +1,7 @@
 Games List:
 
-Pacman, but with a circle of limited visibility
+Pacman, but with a circle of limited visibility, and maybe splippy surfaces? Powerups to increase visibility?
+
 Boxhead
 tank trouble
 agario
