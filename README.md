@@ -5,8 +5,11 @@ Your group report will be written up on Github (formatted with Markdown) as the 
 ## Team
 
 Gus Fowle
+
 Joe Lever
+
 Yi Yin
+
 Yibo Ma
 
 ![alt text](https://github.com/UoB-COMSM0110/2023-group-2/blob/main/thumbnail_IMG_final.jpeg?raw=true)
