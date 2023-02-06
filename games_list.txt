@@ -12,3 +12,4 @@ Fall Guys (but 2D)
 Gluttonous Snake
 Sokoban
 Golden Miner
+Pac-man
