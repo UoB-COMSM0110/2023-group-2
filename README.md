@@ -9,7 +9,8 @@ Joe Lever
 Yi Yin
 Yibo Ma
 
-Team photo: ... waiting for everyone to turn up to take a photo
+![alt text](https://github.com/UoB-COMSM0110/2023-group-2/blob/main/thumbnail_IMG_final.jpeg?raw=true)
+
 
 ## Introduction (5% ~250 words)
 
