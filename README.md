@@ -5,6 +5,9 @@ Your group report will be written up on Github (formatted with Markdown) as the 
 ## Team
 
 Gus Fowle
+Joe Lever
+Yi Yin
+Yibo Ma
 
 Team photo: ... waiting for everyone to turn up to take a photo
 
@@ -40,12 +43,12 @@ Teamwork. How did you work together, what tools did you use. Did you have team r
 
 Reflect on project as a whole. Lessons learned. Reflect on challenges. Future work.
 
-## Quality 
+## Quality
 
 Quality of report writing, presentation, use of figures and visual material (5%)
 
 ## Documentation of code (5%)
 
-## Individual contribution. 
+## Individual contribution.
 
 Provide a table of everyone's contribution, which may be used to weight individual grades. We expect that the contribution will be split evenly across team-members in most cases. Let us know as soon as possible if there are any issues with teamwork as soon as they are apparent.
