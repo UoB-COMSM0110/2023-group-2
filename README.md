@@ -12,6 +12,7 @@ Gus Fowle, Joe Lever, Yi Yin, Yibo Ma
 ## Introduction (5% ~250 words)
 
 Our game is based on the classic arcade game Pacman. In this game, the entity controlled by the player moves around in a 2D maze while trying to collect all the coins. At the same time, a collection of ghosts hunt Pacman, and if they catch it the player loses a life. If the player loses all their lives, it is game over. If Pacman collects all the coins, it moves on to the next level.
+
 Our twist is to restrict the visibility of the maze to the player. Instead of being able to see the entire maze, there is a circle of visibility which follows Pacman around, and anything outside of that circle is hidden behind a "fog". We hope that this will provide a new sense of unpredictability and excitement to the game. Furthermore, we plan to add more features to the maze, such as "slippy" areas which make it more difficult to control the movement of Pacman.
 
 ## Requirements (15% ~750 words)
