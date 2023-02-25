@@ -13,21 +13,20 @@ class Board
   int xOffset;
   
   Board(int height, int width) {
-    
     size = 25;
     wall = 1;
     space = 0;
-    rows = 25;
-    cols = 40;
+
+    String[] lines = loadStrings("../levels/level1.txt");
+    rows = lines.length;
+    cols = lines[0].split(",").length;
     yOffset = (height - (rows * size)) / 2;
     xOffset = (width - (cols * size)) / 2;
     map = new int[rows][cols];
     
-    String[] lines = loadStrings("../levels/level1.txt");
-    
-    for (int row = 0; row < lines.length; row++){
+    for (int row = 0; row < rows; row++){
       var val = lines[row].split(",");
-      for (int col = 0; col < val.length; col++){
+      for (int col = 0; col < cols; col++){
         map[row][col] = Integer.parseInt(val[col]);
       }
     }
@@ -50,10 +49,13 @@ class Board
   
   private void drawLine(int row, int col, int r1, int c1, int r2, int c2) {
     stroke(255, 255, 0);
+    if (row == 0 || row == rows-1 || col == 0 || col == cols-1) {
+      stroke(255, 0, 0);
+    }
     noFill();
     beginShape();
-    vertex((size * col) + xOffset + (r1*size), (size * row) + yOffset + (c1*size));         // top left
-    vertex((size * col) + xOffset + (r2*size), (size * row) + yOffset + (c2*size));         // top right
+    vertex((size * col) + xOffset + (r1*size), (size * row) + yOffset + (c1*size));
+    vertex((size * col) + xOffset + (r2*size), (size * row) + yOffset + (c2*size));
     endShape();    
   }
   
