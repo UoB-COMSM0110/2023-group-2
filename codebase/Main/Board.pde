@@ -14,10 +14,10 @@ class Board
   
   Board(int height, int width) {
     
-    size = 20;
+    size = 25;
     wall = 1;
     space = 0;
-    rows = 31;
+    rows = 25;
     cols = 40;
     yOffset = (height - (rows * size)) / 2;
     xOffset = (width - (cols * size)) / 2;
@@ -50,8 +50,8 @@ class Board
   }
   
   private void drawLine(int row, int col, int r1, int c1, int r2, int c2) {
-    
     stroke(255, 255, 0);
+    noFill();
     beginShape();
     vertex((size * col) + xOffset + (r1*size), (size * row) + yOffset + (c1*size));         // top left
     vertex((size * col) + xOffset + (r2*size), (size * row) + yOffset + (c2*size));         // top right
@@ -65,8 +65,6 @@ class Board
           fill(100);
           noStroke();
           square((size * col) + xOffset, (size * row) + yOffset, size);
-          noFill();
-          stroke(255, 255, 0);
           if (!isInBounds(row-1, col) || noWallNeighbour(row-1, col)) {
             drawLine(row, col, 0, 0, 1, 0);
           }
