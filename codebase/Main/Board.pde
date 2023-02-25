@@ -131,6 +131,13 @@ class Board
     }
   }
   
+  private void determineColour(int row, int col) {
+    int r = row * (255 / rows);
+    int g = col * (255 / cols);
+    fill(r, g, 100);
+    stroke(r, g, 100);
+  }
+  
   public void draw() {
     for (int row = 0; row < rows; row++){
       for (int col = 0; col < cols; col++){
@@ -145,8 +152,9 @@ class Board
           drawOutline(row, col);
         }
         if (map[row][col] == LETTER){
-          fill(0, 255, 0);
-          stroke(0, 255, 0);
+          //fill(0, 255, 0);
+          //stroke(0, 255, 0);
+          determineColour(row, col);
           square((size * col) + xOffset, (size * row) + yOffset, size);
           drawOutline(row, col);
         }        
