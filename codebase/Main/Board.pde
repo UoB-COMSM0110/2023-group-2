@@ -43,12 +43,13 @@ class Board
     return false;
   }
   
-  private boolean noWallNeighbour(int row, int col) {
+  public boolean noWallNeighbour(int row, int col) {
     if (isInBounds(row, col) && map[row][col] != WALL && map[row][col] != LETTER) {
       return true;
     }
     return false;
   }
+  
   
   public int getCellSize(){
     return size;
