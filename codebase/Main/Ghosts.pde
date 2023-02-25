@@ -1,16 +1,16 @@
 class Ghost extends MovingEntity {
-  private color ghostColour;
+  private int ghostColour;
   
-  public Ghost(int row, int col, color ghostColour) {
+  public Ghost(int row, int col, int ghostColour) {
     super(row, col);
     this.ghostColour = ghostColour;
   }
   
-  public color getColour() {
+  public int getColour() {
     return ghostColour;
   }
   
-  public void setColour(color c) {
+  public void setColour(int c) {
     ghostColour = c;
   }
   
