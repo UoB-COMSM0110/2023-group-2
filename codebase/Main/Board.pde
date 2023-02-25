@@ -156,7 +156,7 @@ class Board
           fill(120);
           noStroke();
           if (isPartOfOuter(row, col)) {
-            fill(50);
+            fill(40);
           }
           resetWall();
           square((size * col) + xOffset, (size * row) + yOffset, size);
