@@ -21,6 +21,7 @@ void keyPressed() {
 
 void draw() {
   background(70, 50, 40); // clear the board
+  pacTheMan.update();
   pacTheMan.move(board);
   board.draw(pacTheMan); // draw the board
   pacTheMan.draw();
