@@ -3,10 +3,7 @@ Board board;
 
 void setup(){
   size(1100, 700);
-  stroke(255);
-  background(50);
   board = new Board(700, 1100);
-  board.draw(pacTheMan);
 }
 
 void keyPressed() {
@@ -23,7 +20,7 @@ void keyPressed() {
 }
 
 void draw() {
-  background(50); // clear the board
+  background(70, 50, 40); // clear the board
   board.draw(pacTheMan); // draw the board
   pacTheMan.draw();
 }

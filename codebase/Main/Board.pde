@@ -138,26 +138,38 @@ class Board
     stroke(20 + r, 20 + g, 100);
   }
   
+  private void drawSpace() {
+    for (int row = 0; row < rows; row++){
+      for (int col = 0; col < cols; col++){
+        fill(80);
+        noStroke();
+        square((size * col) + xOffset, (size * row) + yOffset, size);
+      }
+    }
+  }
+  
   public void draw(PacTheMan pacTheMan) {
+    drawSpace();
     for (int row = 0; row < rows; row++){
       for (int col = 0; col < cols; col++){
         if (map[row][col] == WALL){
           fill(120);
           noStroke();
           if (isPartOfOuter(row, col)) {
-            fill(80);
+            fill(50);
           }
           resetWall();
           square((size * col) + xOffset, (size * row) + yOffset, size);
           drawOutline(row, col);
         }
-        if (map[row][col] == LETTER){
+        else if (map[row][col] == LETTER){
           //fill(0, 255, 0);
           //stroke(0, 255, 0);
           determineColour(row, col, pacTheMan);
           square((size * col) + xOffset, (size * row) + yOffset, size);
           drawOutline(row, col);
-        }        
+        }    
+        
       }
     }
   }
