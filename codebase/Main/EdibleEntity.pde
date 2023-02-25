@@ -1,8 +1,8 @@
 class EdibleEntity extends DiscreteBoardEntity {
   private boolean eaten;
   
-  public EdibleEntity(int row, int col) {
-    super(row, col);
+  public EdibleEntity(int row, int col, Board board) {
+    super(row, col, board);
     eaten = false;
   }
   

@@ -1,8 +1,8 @@
 class Coin extends EdibleEntity {
   private int value;
   
-  public Coin(int row, int col, int value) {
-    super(row, col);
+  public Coin(int row, int col, int value, Board board) {
+    super(row, col, board);
     this.value = value;
   }
   

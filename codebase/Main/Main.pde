@@ -1,10 +1,11 @@
-PacTheMan pacTheMan = new PacTheMan(6, 11);
+PacTheMan pacTheMan; // = new PacTheMan(6, 11);
 Board board;
 
 void setup(){
   size(1100, 700);
   frameRate(5);
   board = new Board(700, 1100);
+  pacTheMan = new PacTheMan(6, 11, board);
 }
 
 void keyPressed() {
@@ -23,6 +24,6 @@ void draw() {
   background(70, 50, 40); // clear the board
   pacTheMan.update();
   pacTheMan.move(board);
-  board.draw(pacTheMan); // draw the board
-  pacTheMan.draw();
+  board.drawBoard(pacTheMan); // draw the board
+  pacTheMan.drawMan();
 }

@@ -4,8 +4,8 @@ class MovingEntity extends DiscreteBoardEntity {
   private int slip;
   private int lastClicked;
   
-  public MovingEntity(int row, int col) {
-    super(row, col);
+  public MovingEntity(int row, int col, Board board) {
+    super(row, col, board);
     direction = 0;
     speed = 1;
     slip = 0;

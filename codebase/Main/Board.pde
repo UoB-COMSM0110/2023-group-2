@@ -34,6 +34,14 @@ class Board
     }
   }
   
+  public int getXOffset() {
+    return xOffset;
+  }
+  
+  public int getYOffset() {
+    return yOffset;
+  }
+  
   private boolean isInBounds(int row, int col) {
     if (row >= 0 && row < rows && col >= 0 && col < cols) {
       return true;
@@ -147,7 +155,7 @@ class Board
     }
   }
   
-  public void draw(PacTheMan pacTheMan) {
+  public void drawBoard(PacTheMan pacTheMan) {
     drawSpace();
     for (int row = 0; row < rows; row++){
       for (int col = 0; col < cols; col++){

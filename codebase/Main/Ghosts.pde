@@ -1,8 +1,8 @@
 class Ghost extends MovingEntity {
   private int ghostColour;
   
-  public Ghost(int row, int col, int ghostColour) {
-    super(row, col);
+  public Ghost(int row, int col, int ghostColour, Board board) {
+    super(row, col, board);
     this.ghostColour = ghostColour;
   }
   

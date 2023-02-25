@@ -9,8 +9,8 @@ enum PowerUpType {
 class PowerUp extends EdibleEntity {
   private PowerUpType powerType;
   
-  public PowerUp(int row, int col, PowerUpType powerType) {
-    super(row, col);
+  public PowerUp(int row, int col, PowerUpType powerType, Board board) {
+    super(row, col, board);
     this.powerType = powerType;
   }
   

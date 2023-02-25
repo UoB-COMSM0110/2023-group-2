@@ -1,10 +1,14 @@
 class DiscreteBoardEntity {
   private int row;
   private int col;
+  private int xCentre;
+  private int yCentre;
   
-  public DiscreteBoardEntity(int row, int col) {
+  public DiscreteBoardEntity(int row, int col, Board board) {
     this.row = row;
     this.col = col;
+    this.yCentre = (row * board.getCellSize()) + board.getYOffset();
+    this.xCentre = (col * board.getCellSize()) + board.getXOffset();
   }
   
   public void setCoordinates(int row, int col) {
@@ -18,5 +22,13 @@ class DiscreteBoardEntity {
   
   public int getCol() {
     return col;
+  }
+  
+  public int getX() {
+    return xCentre;
+  }
+  
+  public int getY() {
+    return yCentre;
   }
 }

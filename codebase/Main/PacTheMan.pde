@@ -4,8 +4,8 @@ class PacTheMan extends MovingEntity {
   private int mouthAngle,angleOffset = 0;
   private boolean mouthOpening;
   
-  public PacTheMan(int row, int col) {
-    super(row, col);
+  public PacTheMan(int row, int col, Board board) {
+    super(row, col, board);
     coinCount = 0;
     powerUpActive = false;
     mouthAngle = 45;
@@ -58,7 +58,7 @@ class PacTheMan extends MovingEntity {
     */
   }
   
-  public void draw() {
+  public void drawMan() {
     fill(255, 255, 0); // set fill color to yellow
     stroke(0); // set stroke color to black
     int x = getCol() * board.getCellSize() + board.getCellSize()/2 + board.xOffset; // x-coordinate of Pac-Man's center

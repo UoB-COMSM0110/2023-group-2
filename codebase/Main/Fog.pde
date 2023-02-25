@@ -1,8 +1,8 @@
 class Fog extends MovingEntity {
   private int radius;
   
-  public Fog(int row, int col, int radius) {
-    super(row, col);
+  public Fog(int row, int col, int radius, Board board) {
+    super(row, col, board);
     this.radius = radius;
   }
   
