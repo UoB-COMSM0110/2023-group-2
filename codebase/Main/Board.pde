@@ -59,6 +59,10 @@ class Board
     return cols;
   }
   
+  public int getCellType(int row, int col) {
+    return map[row][col];
+  }
+  
   private void drawLine(int row, int col, int r1, int c1, int r2, int c2) {
     stroke(255, 255, 0);
     if (row == 0 || row == rows-1 || col == 0 || col == cols-1) {
