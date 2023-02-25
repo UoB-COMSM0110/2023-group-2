@@ -70,15 +70,17 @@ class Board
   }
   
   private boolean isPartOfOuter(int row, int col){
+    if (isOuter(row, col)){
+      return true;
+    }
     for (int a = -1; a <= 1; a++) {
       for (int b = -1; b <=1; b++) {
         if (abs(a) != abs(b)) {
           if (isInBounds(row+a, col+b) && getCellType(row+a, col+b) == wall) {
-            if (isOuter(row+a, col+b)){
+            map[row][col] = 2;
+            if(isPartOfOuter(row+a, col+b)){
               return true;
             }
-            map[row][col] = 2;
-            return isPartOfOuter(row+a, col+b);
           }
         }
       }
@@ -99,9 +101,6 @@ class Board
   private void drawLine(int row, int col, int r1, int c1, int r2, int c2) {
     stroke(255, 255, 0);
     noFill();
-    //if (row == 0 || row == rows-1 || col == 0 || col == cols-1) {
-    //  stroke(255, 0, 0);
-    //}
     if (isPartOfOuter(row, col)){
       stroke(255, 0, 0);
     }
@@ -118,6 +117,10 @@ class Board
         if (map[row][col] == wall){
           fill(100);
           noStroke();
+          if (isPartOfOuter(row, col)) {
+            fill(80);
+          }
+          resetWall();
           square((size * col) + xOffset, (size * row) + yOffset, size);
           if (!isInBounds(row-1, col) || noWallNeighbour(row-1, col)) {
             drawLine(row, col, 0, 0, 1, 0);
@@ -135,5 +138,6 @@ class Board
         }
       }
     }
+    System.out.println("finished drawing");
   }
 }
