@@ -1,4 +1,4 @@
-PacTheMan pacTheMan = new PacTheMan(1, 1);
+PacTheMan pacTheMan = new PacTheMan(6, 11);
 Board board;
 
 void setup(){
