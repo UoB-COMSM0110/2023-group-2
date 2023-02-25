@@ -22,17 +22,16 @@ class Board
     yOffset = (height - (rows * size)) / 2;
     xOffset = (width - (cols * size)) / 2;
     map = new int[rows][cols];
-    for (int row = 0; row < rows; row++){
-      for (int col = 0; col < cols; col++){
-        map[row][col] = space;
-        if (row == 0 || row == rows-1 || col == cols-1 || col == 0) {
-          map[row][col] = wall;
-        }
-        if (row % 3 == 0 && col % 3 == 0) {
-          map[row][col] = wall;
-        }
+    
+    String[] lines = loadStrings("../levels/level1.txt");
+    
+    for (int row = 0; row < lines.length; row++){
+      var val = lines[row].split(",");
+      for (int col = 0; col < val.length; col++){
+        map[row][col] = Integer.parseInt(val[col]);
       }
-    } 
+    }
+    
   }
   
   private boolean isInBounds(int row, int col) {
