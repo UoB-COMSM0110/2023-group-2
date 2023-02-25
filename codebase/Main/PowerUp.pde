@@ -1,9 +1,9 @@
 enum PowerUpType { 
- EATGHOSTS
- FAST
- SLOW
- FOGINCREASE
- FOGDECREASE
+ EATGHOSTS,
+ FAST,
+ SLOW,
+ FOGINCREASE,
+ FOGDECREASE,
 }
 
 class PowerUp extends EdibleEntity {
