@@ -30,7 +30,7 @@ public void move(Board board) {
     } else if (getDirection() == 3) { // moving left
       newCol -= getSpeed();
     }
-    if(board.getCellType(newRow, newCol) == 1){
+    if(board.getCellType(newRow, newCol) == 1 || board.getCellType(newRow, newCol) == 3){
       return;
     }
     setCoordinates(newRow, newCol);
