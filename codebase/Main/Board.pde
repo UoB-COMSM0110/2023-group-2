@@ -51,8 +51,8 @@ class Board
     stroke(255, 255, 0);
     noFill();
     beginShape();
-    vertex((size * col) + xOffset + (r1*size), (size * row) + yOffset + (c1*size));         // top left
-    vertex((size * col) + xOffset + (r2*size), (size * row) + yOffset + (c2*size));         // top right
+    vertex((size * col) + xOffset + (r1*size), (size * row) + yOffset + (c1*size));
+    vertex((size * col) + xOffset + (r2*size), (size * row) + yOffset + (c2*size));
     endShape();    
   }
   
