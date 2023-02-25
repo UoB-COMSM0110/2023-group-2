@@ -19,7 +19,7 @@ void keyPressed() {
   } else if (keyCode == LEFT) {
     pacTheMan.setDirection(3);
   }
-  pacTheMan.move();
+  pacTheMan.move(board);
 }
 
 void draw() {
