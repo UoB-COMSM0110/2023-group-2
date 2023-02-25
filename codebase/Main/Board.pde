@@ -13,7 +13,7 @@ class Board
   int xOffset;
   
   Board(int height, int width) {
-    size = 25;
+    size = 27;
     wall = 1;
     space = 0;
 
@@ -45,6 +45,18 @@ class Board
       return true;
     }
     return false;
+  }
+  
+  public int getCellSize(){
+    return size;
+  }
+  
+  public int getNumberOfRows(){
+    return rows;
+  }
+  
+  public int getNumberOfColumns(){
+    return cols;
   }
   
   private void drawLine(int row, int col, int r1, int c1, int r2, int c2) {
