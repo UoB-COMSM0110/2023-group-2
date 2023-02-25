@@ -49,13 +49,13 @@ class Board
     return false;
   }
   
-  private void drawLine(int row, int col, int rowOff, int colOff) {
-    //int sizeRow = (rowOff + 1) / 2;
-    if (!isInBounds(row + rowOff, col + colOff) || noWallNeighbour(row + rowOff, col + colOff)) {
-      stroke(255, 255, 0);
-      vertex((size * col) + xOffset, (size * row) + yOffset);                // top left
-      vertex((size * col) + xOffset + size, (size * row) + yOffset);         // top right
-    }
+  private void drawLine(int row, int col, int r1, int c1, int r2, int c2) {
+    
+    stroke(255, 255, 0);
+    beginShape();
+    vertex((size * col) + xOffset + (r1*size), (size * row) + yOffset + (c1*size));         // top left
+    vertex((size * col) + xOffset + (r2*size), (size * row) + yOffset + (c2*size));         // top right
+    endShape();    
   }
   
   public void draw() {
@@ -68,28 +68,16 @@ class Board
           noFill();
           stroke(255, 255, 0);
           if (!isInBounds(row-1, col) || noWallNeighbour(row-1, col)) {
-            beginShape();
-            vertex((size * col) + xOffset, (size * row) + yOffset);                // top left
-            vertex((size * col) + xOffset + size, (size * row) + yOffset);         // top right
-            endShape();
+            drawLine(row, col, 0, 0, 1, 0);
           }
           if (!isInBounds(row, col+1) || noWallNeighbour(row, col+1)) {
-            beginShape();
-            vertex((size * col) + xOffset + size, (size * row) + yOffset);         // top right
-            vertex((size * col) + xOffset + size, (size * row) + yOffset + size);  // bottom right
-            endShape();
+            drawLine(row, col, 1, 0, 1, 1);
           }
           if (!isInBounds(row+1, col) || noWallNeighbour(row+1, col)) {
-            beginShape();
-            vertex((size * col) + xOffset + size, (size * row) + yOffset + size);  // bottom right
-            vertex((size * col) + xOffset, (size * row) + yOffset + size);         // bottom left
-            endShape();
+            drawLine(row, col, 1, 1, 0, 1);
           }
           if (!isInBounds(row, col-1) || noWallNeighbour(row, col-1)) {
-            beginShape();
-            vertex((size * col) + xOffset, (size * row) + yOffset + size);         // bottom left
-            vertex((size * col) + xOffset, (size * row) + yOffset);                // top left
-            endShape();
+            drawLine(row, col, 0, 1, 0, 0);
           }
 
         }
