@@ -1,4 +1,4 @@
-  private int radius;
+/*  private int radius;
   
   public Fog(int row, int col, int radius) {
     super(row, col);
@@ -12,4 +12,4 @@
   public void setRadius(int radius) {
     this.radius = radius;
   }
-}
+}*/
