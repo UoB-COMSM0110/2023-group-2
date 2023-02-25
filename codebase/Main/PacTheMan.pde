@@ -15,4 +15,8 @@ class PacTheMan extends MovingEntity {
   public void activatePowerUp() {
     powerUpActive = true;
   }
+  
+  public void setDirection(int direction) {
+    super.setDirection(direction);
+  }
 }
