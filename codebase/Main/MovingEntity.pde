@@ -21,13 +21,13 @@ class MovingEntity extends DiscreteBoardEntity {
   
   private void calculateDirection(Board board) {
     if (getLastClicked() == 0 && board.noWallNeighbour(this.getRow() - 1, this.getCol())) {
-      pacTheMan.setDirection(0);
+      this.setDirection(0);
     } else if (getLastClicked() == 1 && board.noWallNeighbour(this.getRow(), this.getCol() + 1)) {
-      pacTheMan.setDirection(1);
+      this.setDirection(1);
     } else if (getLastClicked() == 2 && board.noWallNeighbour(this.getRow() + 1, this.getCol())) {
-      pacTheMan.setDirection(2);
+      this.setDirection(2);
     } else if (getLastClicked() == 3 && board.noWallNeighbour(this.getRow(), this.getCol() - 1)) {
-      pacTheMan.setDirection(3);
+      this.setDirection(3);
     }
   }
   
