@@ -49,6 +49,9 @@ class Board
   
   private void drawLine(int row, int col, int r1, int c1, int r2, int c2) {
     stroke(255, 255, 0);
+    if (row == 0 || row == rows-1 || col == 0 || col == cols-1) {
+      stroke(255, 0, 0);
+    }
     noFill();
     beginShape();
     vertex((size * col) + xOffset + (r1*size), (size * row) + yOffset + (c1*size));
