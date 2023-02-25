@@ -8,14 +8,14 @@ void setup(){
 }
 
 void keyPressed() {
-  if (keyCode == UP && board.noWallNeighbour(pacTheMan.getRow() - 1, pacTheMan.getCol())) {
-    pacTheMan.setDirection(0);
-  } else if (keyCode == RIGHT && board.noWallNeighbour(pacTheMan.getRow(), pacTheMan.getCol() + 1)) {
-    pacTheMan.setDirection(1);
-  } else if (keyCode == DOWN && board.noWallNeighbour(pacTheMan.getRow() + 1, pacTheMan.getCol())) {
-    pacTheMan.setDirection(2);
-  } else if (keyCode == LEFT && board.noWallNeighbour(pacTheMan.getRow(), pacTheMan.getCol() - 1)) {
-    pacTheMan.setDirection(3);
+  if (keyCode == UP) {
+    pacTheMan.setLastClicked(0);
+  } else if (keyCode == RIGHT) {
+    pacTheMan.setLastClicked(1);
+  } else if (keyCode == DOWN) {
+    pacTheMan.setLastClicked(2);
+  } else if (keyCode == LEFT) {
+    pacTheMan.setLastClicked(3);
   }
 }
 

@@ -1,7 +1,6 @@
 
 class Board
 {
-  
   int[][] map;
   int WALL;
   int SPACE;
@@ -33,7 +32,6 @@ class Board
         map[row][col] = Integer.parseInt(val[col]);
       }
     }
-    
   }
   
   private boolean isInBounds(int row, int col) {

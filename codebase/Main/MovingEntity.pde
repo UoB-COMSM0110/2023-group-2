@@ -2,6 +2,7 @@ class MovingEntity extends DiscreteBoardEntity {
   private int direction;
   private int speed;
   private int slip;
+  private int lastClicked;
   
   public MovingEntity(int row, int col) {
     super(row, col);
@@ -18,9 +19,30 @@ class MovingEntity extends DiscreteBoardEntity {
     return direction;
   }
   
+  private void calculateDirection(Board board) {
+    if (getLastClicked() == 0 && board.noWallNeighbour(this.getRow() - 1, this.getCol())) {
+      pacTheMan.setDirection(0);
+    } else if (getLastClicked() == 1 && board.noWallNeighbour(this.getRow(), this.getCol() + 1)) {
+      pacTheMan.setDirection(1);
+    } else if (getLastClicked() == 2 && board.noWallNeighbour(this.getRow() + 1, this.getCol())) {
+      pacTheMan.setDirection(2);
+    } else if (getLastClicked() == 3 && board.noWallNeighbour(this.getRow(), this.getCol() - 1)) {
+      pacTheMan.setDirection(3);
+    }
+  }
+  
+  public void setLastClicked(int direction) {
+    lastClicked = direction;
+  }
+  
+  public int getLastClicked() {
+    return lastClicked;
+  }
+  
   public void move(Board board) {
     int newRow = getRow();
     int newCol = getCol();
+    calculateDirection(board);
     if (getDirection() == 0) { // moving up
       newRow -= getSpeed();
     } else if (getDirection() == 1) { // moving right

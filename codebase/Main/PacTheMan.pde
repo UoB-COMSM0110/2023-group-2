@@ -2,6 +2,7 @@ class PacTheMan extends MovingEntity {
   private int coinCount;
   private boolean powerUpActive;
   
+  
   public PacTheMan(int row, int col) {
     super(row, col);
     coinCount = 0;
@@ -19,6 +20,7 @@ class PacTheMan extends MovingEntity {
   public void setDirection(int direction) {
     super.setDirection(direction);
   }
+  
   
   public void draw() {
     fill(255, 255, 0); // set fill color to yellow
