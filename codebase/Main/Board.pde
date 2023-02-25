@@ -3,8 +3,10 @@ class Board
 {
   
   int[][] map;
-  int wall;
-  int space;
+  int WALL;
+  int SPACE;
+  int SEEN;
+  int LETTER;
   int size;
   int rows;
   int cols;
@@ -13,8 +15,10 @@ class Board
   
   Board(int height, int width) {
     size = 27;
-    wall = 1;
-    space = 0;
+    SPACE = 0;
+    WALL = 1;
+    SEEN = 2;
+    LETTER = 3;
 
     String[] lines = loadStrings("../levels/level1.txt");
     rows = lines.length;
@@ -40,7 +44,7 @@ class Board
   }
   
   private boolean noWallNeighbour(int row, int col) {
-    if (isInBounds(row, col) && map[row][col] != wall) {
+    if (isInBounds(row, col) && map[row][col] != WALL && map[row][col] != LETTER) {
       return true;
     }
     return false;
@@ -76,8 +80,8 @@ class Board
     for (int a = -1; a <= 1; a++) {
       for (int b = -1; b <=1; b++) {
         if (abs(a) != abs(b)) {
-          if (isInBounds(row+a, col+b) && getCellType(row+a, col+b) == wall) {
-            map[row][col] = 2;
+          if (isInBounds(row+a, col+b) && getCellType(row+a, col+b) == WALL) {
+            map[row][col] = SEEN;
             if(isPartOfOuter(row+a, col+b)){
               return true;
             }
@@ -91,17 +95,18 @@ class Board
   private void resetWall() {
     for (int row = 0; row < rows; row++){
       for (int col = 0; col < cols; col++){
-        if (map[row][col] == 2){
-          map[row][col] = wall;
+        if (map[row][col] == SEEN){
+          map[row][col] = WALL;
         }
       }
     }
   }
   
+  
   private void drawLine(int row, int col, int r1, int c1, int r2, int c2) {
     stroke(255, 255, 0);
     noFill();
-    if (isPartOfOuter(row, col)){
+    if (map[row][col] == WALL && isPartOfOuter(row, col)){
       stroke(255, 0, 0);
     }
     resetWall();
@@ -111,33 +116,41 @@ class Board
     endShape();    
   }
   
+  private void drawOutline(int row, int col) {
+    if (!isInBounds(row-1, col) || noWallNeighbour(row-1, col)) {
+      drawLine(row, col, 0, 0, 1, 0);
+    }
+    if (!isInBounds(row, col+1) || noWallNeighbour(row, col+1)) {
+      drawLine(row, col, 1, 0, 1, 1);
+    }
+    if (!isInBounds(row+1, col) || noWallNeighbour(row+1, col)) {
+      drawLine(row, col, 1, 1, 0, 1);
+    }
+    if (!isInBounds(row, col-1) || noWallNeighbour(row, col-1)) {
+      drawLine(row, col, 0, 1, 0, 0);
+    }
+  }
+  
   public void draw() {
     for (int row = 0; row < rows; row++){
       for (int col = 0; col < cols; col++){
-        if (map[row][col] == wall){
-          fill(100);
+        if (map[row][col] == WALL){
+          fill(120);
           noStroke();
           if (isPartOfOuter(row, col)) {
             fill(80);
           }
           resetWall();
           square((size * col) + xOffset, (size * row) + yOffset, size);
-          if (!isInBounds(row-1, col) || noWallNeighbour(row-1, col)) {
-            drawLine(row, col, 0, 0, 1, 0);
-          }
-          if (!isInBounds(row, col+1) || noWallNeighbour(row, col+1)) {
-            drawLine(row, col, 1, 0, 1, 1);
-          }
-          if (!isInBounds(row+1, col) || noWallNeighbour(row+1, col)) {
-            drawLine(row, col, 1, 1, 0, 1);
-          }
-          if (!isInBounds(row, col-1) || noWallNeighbour(row, col-1)) {
-            drawLine(row, col, 0, 1, 0, 0);
-          }
-
+          drawOutline(row, col);
         }
+        if (map[row][col] == LETTER){
+          fill(0, 255, 0);
+          stroke(0, 255, 0);
+          square((size * col) + xOffset, (size * row) + yOffset, size);
+          drawOutline(row, col);
+        }        
       }
     }
-    System.out.println("finished drawing");
   }
 }
