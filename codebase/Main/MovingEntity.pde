@@ -18,6 +18,21 @@ class MovingEntity extends DiscreteBoardEntity {
     return direction;
   }
   
+  public void move() {
+    int newRow = getRow();
+    int newCol = getCol();
+    if (getDirection() == 0) { // moving up
+      newRow -= getSpeed();
+    } else if (getDirection() == 1) { // moving right
+      newCol += getSpeed();
+    } else if (getDirection() == 2) { // moving down
+      newRow += getSpeed();
+    } else if (getDirection() == 3) { // moving left
+      newCol -= getSpeed();
+    }
+    setCoordinates(newRow, newCol);
+  }
+  
   public void setSpeed(int speed) {
     this.speed = speed;
   }
