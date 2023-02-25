@@ -1,4 +1,3 @@
-// fixed map at first
 
 class Board
 {
@@ -63,12 +62,49 @@ class Board
     return map[row][col];
   }
   
+  private boolean isOuter(int row, int col){
+    if (row == 0 || row == rows-1 || col == 0 || col == cols-1) {
+      return true;
+    }
+    return false;
+  }
+  
+  private boolean isPartOfOuter(int row, int col){
+    if (isOuter(row, col)){
+      return true;
+    }
+    for (int a = -1; a <= 1; a++) {
+      for (int b = -1; b <=1; b++) {
+        if (abs(a) != abs(b)) {
+          if (isInBounds(row+a, col+b) && getCellType(row+a, col+b) == wall) {
+            map[row][col] = 2;
+            if(isPartOfOuter(row+a, col+b)){
+              return true;
+            }
+          }
+        }
+      }
+    }
+    return false;
+  }
+  
+  private void resetWall() {
+    for (int row = 0; row < rows; row++){
+      for (int col = 0; col < cols; col++){
+        if (map[row][col] == 2){
+          map[row][col] = wall;
+        }
+      }
+    }
+  }
+  
   private void drawLine(int row, int col, int r1, int c1, int r2, int c2) {
     stroke(255, 255, 0);
-    if (row == 0 || row == rows-1 || col == 0 || col == cols-1) {
+    noFill();
+    if (isPartOfOuter(row, col)){
       stroke(255, 0, 0);
     }
-    noFill();
+    resetWall();
     beginShape();
     vertex((size * col) + xOffset + (r1*size), (size * row) + yOffset + (c1*size));
     vertex((size * col) + xOffset + (r2*size), (size * row) + yOffset + (c2*size));
@@ -81,6 +117,10 @@ class Board
         if (map[row][col] == wall){
           fill(100);
           noStroke();
+          if (isPartOfOuter(row, col)) {
+            fill(80);
+          }
+          resetWall();
           square((size * col) + xOffset, (size * row) + yOffset, size);
           if (!isInBounds(row-1, col) || noWallNeighbour(row-1, col)) {
             drawLine(row, col, 0, 0, 1, 0);
@@ -98,5 +138,6 @@ class Board
         }
       }
     }
+    System.out.println("finished drawing");
   }
 }
