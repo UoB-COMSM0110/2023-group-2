@@ -59,12 +59,11 @@ class MovingEntity extends DiscreteBoardEntity {
     return lastClicked;
   }
   
-  private boolean positionExact() {
-    if ((getX() - board.getXOffset() - (board.getCellSize() / 2)) % board.getCellSize() == 0) {
-      if ((getY() - board.getYOffset() - (board.getCellSize() / 2)) % board.getCellSize() == 0) {
+  protected boolean positionExact() {
+    if ((getX() - board.getXOffset() - (board.getCellSize() / 2)) % board.getCellSize() == 0 &&
+      (getY() - board.getYOffset() - (board.getCellSize() / 2)) % board.getCellSize() == 0) {
         return true;
       }
-    }
     return false;
   }
   

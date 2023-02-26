@@ -13,6 +13,10 @@ void setup(){
   size(1100, 700);
   frameRate(100);
   board = new Board(700, 1100);
+  pacTheMan = new PacTheMan(6, 11, board);
+  for (int i = 0; i < ghosts.length; i++) {
+    ghosts[i] = new Ghost(7, 12, i, board);
+  }
 }
 
 void keyPressed() {
@@ -34,6 +38,6 @@ void draw() {
   board.drawBoard(pacTheMan); // draw the board
   pacTheMan.drawMan();
   for (int i = 0; i < ghosts.length; i++) {
-    ghosts[i].draw (board, pacTheMan.getRow(), pacTheMan.getCol(), pacTheMan.getPowerUpActive());
+    ghosts[i].draw (board, pacTheMan.getRow(), pacTheMan.getCol(), pacTheMan.getLastClicked(), pacTheMan.getPowerUpActive());
   }
 }
