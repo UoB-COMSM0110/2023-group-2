@@ -1,9 +1,9 @@
-PacTheMan pacTheMan; // = new PacTheMan(6, 11);
+PacTheMan pacTheMan;
 Board board;
 
 void setup(){
   size(1100, 700);
-  frameRate(5);
+  frameRate(100);
   board = new Board(700, 1100);
   pacTheMan = new PacTheMan(6, 11, board);
 }

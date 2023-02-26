@@ -39,13 +39,13 @@ class PacTheMan extends MovingEntity {
     // update mouth angle
     //if (isEating) {
     if (mouthOpening) {
-      mouthAngle += 25;
+      mouthAngle += 3;
       if (mouthAngle >= 45) {
         mouthAngle = 45;
         mouthOpening = false;
       }
     } else {
-      mouthAngle -= 25;
+      mouthAngle -= 3;
       if (mouthAngle <= 0) {
         mouthAngle = 0;
         mouthOpening = true;
@@ -61,8 +61,8 @@ class PacTheMan extends MovingEntity {
   public void drawMan() {
     fill(255, 255, 0); // set fill color to yellow
     stroke(0); // set stroke color to black
-    int x = getCol() * board.getCellSize() + board.getCellSize()/2 + board.xOffset; // x-coordinate of Pac-Man's center
-    int y = getRow() * board.getCellSize() + board.getCellSize()/2 + board.yOffset; // y-coordinate of Pac-Man's center
+    int x = getX();
+    int y = getY();
     pushMatrix();
     translate(x, y);
     fill(255, 255, 0);

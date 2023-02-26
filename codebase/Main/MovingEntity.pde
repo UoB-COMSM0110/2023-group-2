@@ -3,6 +3,7 @@ class MovingEntity extends DiscreteBoardEntity {
   private int speed;
   private int slip;
   private int lastClicked;
+  private boolean stop;
   
   public MovingEntity(int row, int col, Board board) {
     super(row, col, board);
@@ -31,6 +32,25 @@ class MovingEntity extends DiscreteBoardEntity {
     }
   }
   
+  private void calculateStop() {
+    if (positionExact()) {
+      stop = true;
+      if (getDirection() == 1 && board.noWallNeighbour(getRow(), getCol() + 1)) {
+        stop = false;
+      }
+      if (getDirection() == 3 && board.noWallNeighbour(getRow(), getCol() - 1)) {
+        stop = false;
+      }
+      if (getDirection() == 0 && board.noWallNeighbour(getRow() - 1, getCol())) {
+        stop = false;
+      }
+      if (getDirection() == 2 && board.noWallNeighbour(getRow() + 1, getCol())) {
+        stop = false;
+      }
+    }    
+  }
+  
+  
   public void setLastClicked(int direction) {
     lastClicked = direction;
   }
@@ -39,26 +59,55 @@ class MovingEntity extends DiscreteBoardEntity {
     return lastClicked;
   }
   
+  private boolean positionExact() {
+    if ((getX() - board.getXOffset() - (board.getCellSize() / 2)) % board.getCellSize() == 0) {
+      if ((getY() - board.getYOffset() - (board.getCellSize() / 2)) % board.getCellSize() == 0) {
+        return true;
+      }
+    }
+    return false;
+  }
+  
   public void move(Board board) {
-    int newRow = getRow();
-    int newCol = getCol();
-    calculateDirection(board);
+    
+    int newX = getX();
+    int newY = getY();
+    
+    if (positionExact()) {
+      calculateDirection(board);
+    }
+
     if (getDirection() == 0) { // moving up
-      newRow -= getSpeed();
-    } else if (getDirection() == 1) { // moving right
-      newCol += getSpeed();
-    } else if (getDirection() == 2) { // moving down
-      newRow += getSpeed();
-    } else if (getDirection() == 3) { // moving left
-      newCol -= getSpeed();
+      newY -= getSpeed();
+    } 
+    else if (getDirection() == 1) { // moving right
+      newX += getSpeed();
+    } 
+    else if (getDirection() == 2) { // moving down
+      newY += getSpeed();
+    } 
+    else if (getDirection() == 3) { // moving left
+      newX -= getSpeed();
     }
-    if(board.getCellType(newRow, newCol) == 1 || board.getCellType(newRow, newCol) == 3){
-      return;
+    calculateStop();
+    if (!stop) {
+      setPixels(newY, newX);
     }
-    setCoordinates(newRow, newCol);
+    
+    if (positionExact()) {
+      int newRow = (getY() - board.getYOffset() - (board.getCellSize() / 2)) / board.getCellSize();
+      int newCol = (getX() - board.getXOffset() - (board.getCellSize() / 2)) / board.getCellSize();
+      if (board.noWallNeighbour(newRow, newCol)) {
+        setCoordinates(newRow, newCol);
+      }
+      
+    }
   }
   
   public void setSpeed(int speed) {
+    while (speed % board.getCellSize() != 0) {
+      speed -= 1;
+    }
     this.speed = speed;
   }
   
