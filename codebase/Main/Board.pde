@@ -11,6 +11,8 @@ class Board
   int cols;
   int yOffset;
   int xOffset;
+  int windowHeight;
+  int windowWidth;
   
   Board(int height, int width) {
     size = 27;
@@ -18,6 +20,8 @@ class Board
     WALL = 1;
     SEEN = 2;
     LETTER = 3;
+    windowHeight = height;
+    windowWidth = width;
 
     String[] lines = loadStrings("../levels/level1.txt");
     rows = lines.length;
@@ -139,8 +143,16 @@ class Board
   }
   
   private void determineColour(int row, int col, PacTheMan pacTheMan) {
-    int r = (abs(pacTheMan.getRow() - row)) * (255 / (rows / 2));
-    int g = (abs(pacTheMan.getCol() - col)) * (255 / (cols / 2));
+    row = ((row * getCellSize()) + getYOffset() + (getCellSize() / 2));    
+    col = ((col * getCellSize()) + getXOffset() + (getCellSize() / 2));    
+    int r = round(2*abs(pacTheMan.getY() - row) * ((float)255 / (float)windowHeight));
+    int g = round(1.5*abs(pacTheMan.getX() - col) * ((float)255 / (float)windowWidth));
+    if (r > 255) {
+      r = 255;
+    }
+    if (g > 255) {
+      g = 255;
+    }
     fill(20 + r, 20 + g, 100);
     stroke(20 + r, 20 + g, 100);
   }
