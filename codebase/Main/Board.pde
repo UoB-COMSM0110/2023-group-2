@@ -163,10 +163,10 @@ class Board
     int r = round(2*abs(pacTheMan.getY() - row) * ((float)255 / (float)windowHeight));
     int g = round(1.5*abs(pacTheMan.getX() - col) * ((float)255 / (float)windowWidth));
     if (r > 255) {
-      r = 255;
+      r = 255 - (r - 255);
     }
     if (g > 255) {
-      g = 255;
+      g = 255 - (r - 255);
     }
     fill(20 + r, 20 + g, 100);
     stroke(20 + r, 20 + g, 100);
@@ -197,8 +197,6 @@ class Board
           drawOutline(row, col);
         }
         else if (map[row][col] == LETTER){
-          //fill(0, 255, 0);
-          //stroke(0, 255, 0);
           determineColour(row, col, pacTheMan);
           square((size * col) + xOffset, (size * row) + yOffset, size);
           drawOutline(row, col);
