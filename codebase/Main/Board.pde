@@ -13,29 +13,44 @@ class Board
   int xOffset;
   int windowHeight;
   int windowWidth;
+  int level;
   
   Board(int height, int width) {
-    size = 27;
-    SPACE = 0;
-    WALL = 1;
-    SEEN = 2;
-    LETTER = 3;
-    windowHeight = height;
-    windowWidth = width;
-
-    String[] lines = loadStrings("../levels/level1.txt");
-    rows = lines.length;
-    cols = lines[0].split(",").length;
-    yOffset = (height - (rows * size)) / 2;
-    xOffset = (width - (cols * size)) / 2;
-    map = new int[rows][cols];
+    this.level = 2;
+    this.size = 27;
+    this.SPACE = 0;
+    this.WALL = 1;
+    this.SEEN = 2;
+    this.LETTER = 3;
+    this.windowHeight = height;
+    this.windowWidth = width;
     
-    for (int row = 0; row < rows; row++){
+    this.loadBoard();
+  }
+  
+  public void loadBoard() {
+    String path = "../levels/level" + this.level + ".txt";
+    String[] lines = loadStrings(path);
+    this.rows = lines.length;
+    this.cols = lines[0].split(",").length;
+    this.yOffset = (height - (rows * size)) / 2;
+    this.xOffset = (width - (cols * size)) / 2;
+    this.map = new int[rows][cols];
+    
+    for (int row = 0; row < this.rows; row++){
       var val = lines[row].split(",");
-      for (int col = 0; col < cols; col++){
-        map[row][col] = Integer.parseInt(val[col]);
+      for (int col = 0; col < this.cols; col++){
+        this.map[row][col] = Integer.parseInt(val[col]);
       }
     }
+  }
+  
+  public void setLevel(int newLevel) {
+    this.level = newLevel;
+  }
+  
+  public int getLevel() {
+    return this.level;
   }
   
   public int getXOffset() {
