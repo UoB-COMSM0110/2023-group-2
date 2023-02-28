@@ -1,0 +1,20 @@
+25th February 2023
+
+Present - Joe Lever, Gus Fowle, Yi Yin, Liz
+
+Key points:
+
+ - Decide on who does what for our game-jam session during reading week
+ - Divide tasks up into the different classes as defined by our UML classes diagram to prevent conflicts when pushing to github.
+ - Arrange a meeting with Yibo Ma during reading week to explain our progress as he was unable to attend.
+ - Research a way to create a kanban board online which can be easily shared with the group to track our progress.
+
+Task division for our gamejam:
+
+ - Liz      - work on the "PacTheMan" class which contains the methods and attributes for the player.
+ - Yi Yin   - work on the "Ghosts" class which integrates how the ghosts move around the board
+ - Gus      - work on the "Board" class which defines the map in which the player will move
+ - Joe      - work on the "PacTheMan" class after Liz leaves to create movement functionality, and create skeleton classes for all the other classes defined in the UML class diagram.
+ - Yibo Ma  - TBD.
+
+ - Mystery person???? - maybe raise the issue if he doesn't turn up after reading week?
