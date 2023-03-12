@@ -1,0 +1,3 @@
+Jira kanban board:
+
+https://sb22182.atlassian.net/jira/software/projects/OSE/boards/1
