@@ -16,20 +16,24 @@ color[] ghostColors = {
 Ghost[] ghosts = new Ghost[ghostColors.length];
 Board board;
 
+InGameMenu inGameMenu = new InGameMenu(); 
+
 void setup(){
-  size(1100, 700);
+  size(1280, 720);
   frameRate(100);
   board = new Board(700, 1100);
   pacTheMan = new PacTheMan(6, 11, board);
   for (int i = 0; i < ghosts.length; i++) {
     ghosts[i] = new Ghost(9, 16, i, board);
   }
+
   Intro = BackGroundMusic.loadFile("../music/intro-music.mp3",2048);
   Siren = BackGroundMusic.loadFile("../music/siren.mp3",2048);
   Intro.play();
   Siren.loop();
-
 }
+
+
 
 void keyPressed() {
   if (keyCode == UP) {
@@ -40,6 +44,11 @@ void keyPressed() {
     pacTheMan.setLastClicked(2);
   } else if (keyCode == LEFT) {
     pacTheMan.setLastClicked(3);
+  } else if (keyCode == ENTER) {
+    inGameMenu.menuKeyPressed();
+    textSize(30);
+    textAlign(CENTER, CENTER);
+    text("Game Paused", 640, 360);
   }
 }
 
