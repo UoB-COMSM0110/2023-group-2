@@ -1,3 +1,10 @@
+import ddf.minim.*;
+
+Minim BackGroundMusic = new Minim(this);
+AudioPlayer Intro;
+AudioPlayer Siren;
+//Intro = BackGroundMusic.loadFile("intro-music.mp3",2048);
+
 PacTheMan pacTheMan;
 color[] ghostColors = {
   color(255, 0, 0), 
@@ -15,8 +22,13 @@ void setup(){
   board = new Board(700, 1100);
   pacTheMan = new PacTheMan(6, 11, board);
   for (int i = 0; i < ghosts.length; i++) {
-    ghosts[i] = new Ghost(7, 12, i, board);
+    ghosts[i] = new Ghost(9, 16, i, board);
   }
+  Intro = BackGroundMusic.loadFile("../music/intro-music.mp3",2048);
+  Siren = BackGroundMusic.loadFile("../music/siren.mp3",2048);
+  Intro.play();
+  Siren.loop();
+
 }
 
 void keyPressed() {
