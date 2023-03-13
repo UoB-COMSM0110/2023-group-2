@@ -1,0 +1,22 @@
+Think aloud task 13th March
+
+Facilitator: Gus Fowle
+Observers: Joe Lever, Yibo Ma
+Participants: Eamon and Bala
+
+Ideas for improvement:
+
+ - Pacman needs to interact with the Ghosts and there needs to be coins.
+ - No clear objective.
+ - The twist hasn't been implemented yet.
+ - Make the map have full visibility for a few seconds before the game begins and limited visibility is implemented. Maybe also have more "full visibility" moments if you eat a ghost or eat a powerup etc.
+ - Implement music throughout the whole gameplay.
+ - Spawn location shouldn't be inside a wall.
+ - Should have a theme to explain the twist?
+
+
+Things they like:
+
+ - The theme of the map / writing in the walls
+ - Changing colours of the walls
+ - Smooth movement and animation of pacman and ghosts.

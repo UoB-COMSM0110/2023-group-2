@@ -30,7 +30,7 @@ void setup(){
   Intro = BackGroundMusic.loadFile("../music/intro-music.mp3",2048);
   Siren = BackGroundMusic.loadFile("../music/siren.mp3",2048);
   Intro.play();
-  Siren.loop();
+  //Siren.loop();
 }
 
 

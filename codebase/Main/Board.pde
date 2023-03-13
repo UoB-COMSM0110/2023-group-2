@@ -143,16 +143,16 @@ class Board
   }
   
   private void drawOutline(int row, int col) {
-    if (!isInBounds(row-1, col) || noWallNeighbour(row-1, col)) {
+    if (!isInBounds(row-1, col) || noWallNeighbour(row-1, col)) { // UP
       drawLine(row, col, 0, 0, 1, 0);
     }
-    if (!isInBounds(row, col+1) || noWallNeighbour(row, col+1)) {
+    if (!isInBounds(row, col+1) || noWallNeighbour(row, col+1)) { // RIGHT
       drawLine(row, col, 1, 0, 1, 1);
     }
-    if (!isInBounds(row+1, col) || noWallNeighbour(row+1, col)) {
+    if (!isInBounds(row+1, col) || noWallNeighbour(row+1, col)) {  // DOWN
       drawLine(row, col, 1, 1, 0, 1);
     }
-    if (!isInBounds(row, col-1) || noWallNeighbour(row, col-1)) {
+    if (!isInBounds(row, col-1) || noWallNeighbour(row, col-1)) { // LEFT
       drawLine(row, col, 0, 1, 0, 0);
     }
   }
