@@ -13,7 +13,7 @@ Ideas for improvement:
  - Implement music throughout the whole gameplay.
  - Spawn location shouldn't be inside a wall.
  - Should have a theme to explain the twist?
-
+ - The movement of the ghosts needs to be less "back-and-forth" (they need to move further)
 
 Things they like:
 
